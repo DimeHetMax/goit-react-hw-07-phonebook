@@ -1,7 +1,6 @@
 import { useDispatch, useSelector} from "react-redux";
 import { getContacts } from "redux/selectors";
-// import { addContacts } from "redux/actions";
-import { addContacts } from "redux/contactsSlice";
+import { addContacts } from "redux/operations";
 import css from "./ContactForm.module.css"
 
 export const ContactForm = ()=>{
@@ -17,7 +16,7 @@ export const ContactForm = ()=>{
       alert('This name already exists in the phonebook!');
       return;
     }
-    dispatch(addContacts(name, phone))
+    dispatch(addContacts({name, phone}))
     event.target.reset();
   }
   return (
